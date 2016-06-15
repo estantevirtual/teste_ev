@@ -15,8 +15,8 @@ Através da API, deveremos ser capazes de:
 ex: 
 ```json
 {
-  "Competicao": "100m classificatoria 1", 
-  "atelta": "Joao das Neves", 
+  "competicao": "100m classificatoria 1", 
+  "atleta": "Joao das Neves", 
   "value": "10.234", 
   "unidade": "s"
 }
@@ -24,8 +24,8 @@ ex:
 ex: 
 ```json
 {
-  "Competicao": "Dardo semifinal", 
-  "atelta": "Claudio", 
+  "competicao": "Dardo semifinal", 
+  "atleta": "Claudio", 
   "value": "70.43", 
   "unidade": "m"
 }
