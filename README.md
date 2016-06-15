@@ -15,7 +15,7 @@ Através da API, deveremos ser capazes de:
 ex: 
 ```json
 {
-  "Competicao": "100m classificatoria 1, 
+  "Competicao": "100m classificatoria 1", 
   "atelta": "Joao das Neves", 
   "value": "10.234", 
   "unidade": "s"
