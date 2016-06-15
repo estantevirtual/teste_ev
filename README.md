@@ -15,19 +15,19 @@ Através da API, deveremos ser capazes de:
 ex: 
 ```json
 {
-  Competicao: '100m classificatoria 1', 
-  atelta: 'Joao das Neves', 
-  value: '10.234', 
-  unidade: 's'
+  "Competicao": "100m classificatoria 1, 
+  "atelta": "Joao das Neves", 
+  "value": "10.234", 
+  "unidade": "s"
 }
 ```
 ex: 
 ```json
 {
-  Competicao: 'Dardo semifinal', 
-  atelta: 'Claudio', 
-  value: '70.43', 
-  unidade: 'm'
+  "Competicao": "Dardo semifinal", 
+  "atelta": "Claudio", 
+  "value": "70.43", 
+  "unidade": "m"
 }
 ```
 4. Finalizar uma competição.
