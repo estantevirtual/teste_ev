@@ -41,8 +41,6 @@ ex:
 4. O Design da API, bem como input e output dos dados, fica a seu critério, sendo inclusive um dos pontos de avaliação.
 5. Testes são obrigatórios.
 6. Necessária criação de um Readme para informar o passo a passo de como rodar a API.
-7. Não é necessário criar um banco de dados, podendo manter os dados na memória.
+7. Não é necessário criar um banco de dados, podendo manter os dados na memória. (hint: sqlite)
 8. É imperativo a utilização de Ruby para a criação da API Rest.
-
-
-
+9. Sugerimos a utilização do git para versionar a solução. Um Pull Request (PR) para este repo, num branch com seu nome_sobrenome seria excelente, pois mais do que analisar o código, queremos analisar o fluxo de trabalho, a linha de pensamento e como evoluiu o código até chegar na solução.
