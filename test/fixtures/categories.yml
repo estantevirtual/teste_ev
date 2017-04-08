@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  score_type: MyString
+  unit: MyString
+
+two:
+  name: MyString
+  score_type: MyString
+  unit: MyString
