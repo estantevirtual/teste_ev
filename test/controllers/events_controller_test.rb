@@ -12,7 +12,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create event" do
     assert_difference('Event.count', 1) do
-      post events_url, params: { event: { attempts: "3", begin_dt: "2017-04-08T22:30:45.846Z", location: "Rio de Janeiro", name: "Teste" , category_id: "1"} }
+      post events_url, params: { event: { attempts: @event.attempts, begin_dt: @event.begin_dt, location: @event.location, name: @event.name, category_id: :metros_rasos} }
     end
   end
 
@@ -22,9 +22,9 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update event" do
-    put event_url(@event), params: { event: { attempts: @event.attempts, begin_dt: "2017-04-08T22:30:45.846Z", location: @event.location, name: "Teste_result" } }
+    put event_url(@event), params: { event: { attempts: @event.attempts, begin_dt: @event.begin_dt, location: @event.location, name: "Test_result" } }
     category = JSON.parse(@response.body)
-    assert category['name'] == "Teste_result"
+    assert category['name'] == "Test_result"
   end
 
   test "should destroy event" do

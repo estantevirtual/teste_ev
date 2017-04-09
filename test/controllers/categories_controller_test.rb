@@ -23,9 +23,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update category" do
-    put category_url(@category), params: { category: { name: "Teste_result", score_type: @category.score_type, unit: @category.unit } }
+    put category_url(@category), params: { category: { name: "Test_result", score_type: @category.score_type, unit: @category.unit } }
     category = JSON.parse(@response.body)
-    assert category['name'] == "Teste_result"
+    assert category['name'] == "Test_result"
   end
 
   test "should destroy category" do

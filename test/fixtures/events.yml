@@ -5,11 +5,11 @@ rio_metros_rasos:
   name: "Rio 2016 corrida de 100 metros rasos"
   attempts: 1
   begin_dt: "2017-04-08T22:30:45.846Z"
-  category_id: 1
+  category: metros_rasos
 
 rio_futebol:
   location: "Rio de Janeiro"
   name: "Rio 2016 final de futebol"
   attempts: 1
   begin_dt: "2017-04-08T22:30:45.846Z"
-  category_id: 5
+  category_id: futebol
