@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  score_type: MyString
-  unit: MyString
+metros_rasos:
+  name: "100 metros rasos"
+  score_type: "lowest"
+  unit: "seconds"
 
-two:
-  name: MyString
-  score_type: MyString
-  unit: MyString
+futebol:
+  name: "Futebol"
+  score_type: "highest"
+  unit: "points"
