@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  name: MyString
+  attempts: 1
+  begin_dt: 2017-04-09
+
+two:
+  location: MyString
+  name: MyString
+  attempts: 1
+  begin_dt: 2017-04-09
