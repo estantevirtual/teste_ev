@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  location: MyString
-  name: MyString
+rio_metros_rasos:
+  location: "Rio de Janeiro"
+  name: "Rio 2016 corrida de 100 metros rasos"
   attempts: 1
-  begin_dt: 2017-04-09
+  begin_dt: "2017-04-08T22:30:45.846Z"
+  category_id: 1
 
-two:
-  location: MyString
-  name: MyString
+rio_futebol:
+  location: "Rio de Janeiro"
+  name: "Rio 2016 final de futebol"
   attempts: 1
-  begin_dt: 2017-04-09
+  begin_dt: "2017-04-08T22:30:45.846Z"
+  category_id: 5

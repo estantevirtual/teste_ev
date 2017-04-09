@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @event = events(:one)
+    @event = events(:rio_metros_rasos)
   end
 
   test "should get index" do
@@ -10,17 +10,10 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_event_url
-    assert_response :success
-  end
-
   test "should create event" do
-    assert_difference('Event.count') do
-      post events_url, params: { event: { attempts: @event.attempts, begin_dt: @event.begin_dt, location: @event.location, name: @event.name } }
+    assert_difference('Event.count', 1) do
+      post events_url, params: { event: { attempts: "3", begin_dt: "2017-04-08T22:30:45.846Z", location: "Rio de Janeiro", name: "Teste" , category_id: "1"} }
     end
-
-    assert_redirected_to event_url(Event.last)
   end
 
   test "should show event" do
@@ -28,21 +21,15 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_event_url(@event)
-    assert_response :success
-  end
-
   test "should update event" do
-    patch event_url(@event), params: { event: { attempts: @event.attempts, begin_dt: @event.begin_dt, location: @event.location, name: @event.name } }
-    assert_redirected_to event_url(@event)
+    put event_url(@event), params: { event: { attempts: @event.attempts, begin_dt: "2017-04-08T22:30:45.846Z", location: @event.location, name: "Teste_result" } }
+    category = JSON.parse(@response.body)
+    assert category['name'] == "Teste_result"
   end
 
   test "should destroy event" do
     assert_difference('Event.count', -1) do
       delete event_url(@event)
     end
-
-    assert_redirected_to events_url
   end
 end
