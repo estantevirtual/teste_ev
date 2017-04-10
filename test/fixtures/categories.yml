@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+metros_rasos:
+  name: "100 metros rasos"
+  score_type: "lowest"
+  unit: "seconds"
+
+futebol:
+  name: "Futebol"
+  score_type: "highest"
+  unit: "points"

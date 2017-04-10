@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 9.99
+  sportsman: one
+  event: rio_metros_rasos
+
+two:
+  score: 9.99
+  sportsman: two
+  event: rio_futebol
+
+three:
+  score: 9.99
+  sportsman: two
+  event: multiple_competes
+
+four:
+  score: 9.99
+  sportsman: two
+  event: multiple_competes
+
+five:
+  score: 9.99
+  sportsman: two
+  event: multiple_competes
