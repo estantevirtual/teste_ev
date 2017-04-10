@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :update, :destroy]
+  before_action :set_event, only: [:show, :end, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -47,6 +47,11 @@ class EventsController < ApplicationController
     end
   end
 
+  #POST /events/1/end
+  def end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
@@ -55,6 +60,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:location, :name, :attempts, :category_id,  :begin_dt)
+      params.require(:event).permit(:location, :name, :attempts, :category_id, :begin_dt, :ended)
     end
 end

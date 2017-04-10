@@ -21,7 +21,9 @@ class CompetesController < ApplicationController
       if (attempts + 1)> event.attempts
         format.json { render json: {errors: 'this sportsman has ran out of attempts'}, status: :bad_request }
       elsif event.begin_dt > DateTime.now
-             format.json { render json: {errors: 'this event has not began yet'}, status: :bad_request }
+        format.json { render json: {errors: 'this event has not began yet'}, status: :bad_request }
+      elsif event.ended
+        format.json { render json: {errors: 'this event has already ended'}, status: :bad_request }
       else
         @compete = Compete.new(compete_params)
         if @compete.save
