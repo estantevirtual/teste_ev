@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :events, :defaults => { :format => :json }, :except => [:new, :edit] do
     member do
       post :end
+      get :ranking
     end
   end
   resources :categories, :defaults => { :format => :json }, :except => [:new, :edit]
