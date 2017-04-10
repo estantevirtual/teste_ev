@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 9.99
+  sportsman: one
+  event: one
+
+two:
+  score: 9.99
+  sportsman: two
+  event: two

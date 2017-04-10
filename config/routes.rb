@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :competes, :defaults => { :format => :json }, :except => [:new, :edit]
   resources :sportsmen, :defaults => { :format => :json }, :except => [:new, :edit]
   resources :events, :defaults => { :format => :json }, :except => [:new, :edit]
   resources :categories, :defaults => { :format => :json }, :except => [:new, :edit]
