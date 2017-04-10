@@ -36,27 +36,6 @@ class CompetesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /competes/1
-  # PATCH/PUT /competes/1.json
-  def update
-    respond_to do |format|
-      if @compete.update(compete_params)
-        format.json { render :show, status: :ok, location: @compete }
-      else
-        format.json { render json: @compete.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /competes/1
-  # DELETE /competes/1.json
-  def destroy
-    @compete.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_compete

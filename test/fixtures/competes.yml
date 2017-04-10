@@ -9,3 +9,18 @@ two:
   score: 9.99
   sportsman: two
   event: rio_futebol
+
+three:
+  score: 9.99
+  sportsman: two
+  event: multiple_competes
+
+four:
+  score: 9.99
+  sportsman: two
+  event: multiple_competes
+
+five:
+  score: 9.99
+  sportsman: two
+  event: multiple_competes

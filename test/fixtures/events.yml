@@ -4,6 +4,7 @@ rio_metros_rasos:
   location: "Rio de Janeiro"
   name: "Rio 2016 corrida de 100 metros rasos"
   attempts: 1
+  ended: false
   begin_dt: "2017-04-08T22:30:45.846Z"
   category: metros_rasos
 
@@ -11,5 +12,38 @@ rio_futebol:
   location: "Rio de Janeiro"
   name: "Rio 2016 final de futebol"
   attempts: 1
+  ended: false
   begin_dt: "2017-04-08T22:30:45.846Z"
-  category_id: futebol
+  category: futebol
+
+no_attempts:
+  location: "Rio de Janeiro"
+  name: "Rio 2016 final de futebol"
+  attempts: 0
+  ended: false
+  begin_dt: "2017-04-08T22:30:45.846Z"
+  category: futebol
+
+ended:
+  location: "Rio de Janeiro"
+  name: "Rio 2016 final de futebol"
+  attempts: 3
+  ended: true
+  begin_dt: "2017-04-08T22:30:45.846Z"
+  category: futebol
+
+not_started:
+  location: "Rio de Janeiro"
+  name: "Rio 2016 final de futebol"
+  attempts: 3
+  ended: false
+  begin_dt: "2027-04-08T22:30:45.846Z"
+  category: futebol
+
+multiple_competes:
+  location: "Rio de Janeiro"
+  name: "Rio 2016 final de futebol"
+  attempts: 3
+  ended: false
+  begin_dt: "2027-04-08T22:30:45.846Z"
+  category: futebol

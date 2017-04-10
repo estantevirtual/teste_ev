@@ -7,3 +7,7 @@ one:
 two:
   name: MyString
   age: 1
+
+three:
+  name: MyString
+  age: 1

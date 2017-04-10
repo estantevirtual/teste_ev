@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :competes, :defaults => { :format => :json }, :except => [:new, :edit]
+  resources :competes, :defaults => { :format => :json }, :only => [:create, :index, :show]
   resources :sportsmen, :defaults => { :format => :json }, :except => [:new, :edit]
   resources :events, :defaults => { :format => :json }, :except => [:new, :edit] do
     member do

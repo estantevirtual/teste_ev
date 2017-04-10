@@ -59,7 +59,7 @@ class EventsController < ApplicationController
       if Category.find(@event.category_id).score_type == 'highest'
         ordering = :desc
       end
-      @competes = Compete.where(event_id: params[:id]).order(score: ordering).limit(params[:position])
+      @competes = Compete.where(event_id: params[:id]).group(:sportsman_id).order(score: ordering).limit(params[:position])
       format.json { render json: @competes, status: :ok}
     end
   end
