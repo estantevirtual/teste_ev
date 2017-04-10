@@ -23,8 +23,8 @@ class SportsmenControllerTest < ActionDispatch::IntegrationTest
 
   test "should update sportsman" do
     patch sportsman_url(@sportsman), params: { sportsman: { age: @sportsman.age, name: "Test_result" } }
-    category = JSON.parse(@response.body)
-    assert category['name'] == "Test_result"
+    sportsman = JSON.parse(@response.body)
+    assert sportsman['name'] == "Test_result"
   end
 
   test "should destroy sportsman" do

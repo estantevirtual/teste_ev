@@ -3,9 +3,9 @@
 one:
   score: 9.99
   sportsman: one
-  event: one
+  event: rio_metros_rasos
 
 two:
   score: 9.99
   sportsman: two
-  event: two
+  event: rio_futebol
