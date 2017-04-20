@@ -1,46 +1,35 @@
-# Teste prático da EstanteVirtual #
-## Jogos Olímpicos ##
+# README
 
-Com a chegada dos jogos olímpicos, fomos designados para construir uma API **REST** em **Ruby** para o COB (Comitê Olímico Brasileiro), que será responsável por marcar e dizer os vencedores das seguintes modalidades:
+Segue o desafio proposto por vocês. Infelizmente me esqueci de guardar um histórico de commits, também fiz o desafio em praticamente um dia(tempo livre pós-trab). Acho que de forma apressada posso não ter tomado as melhores decisões do mundo para estruturar o projeto. Há uma cobertura mínima de testes, mas não tive tempo de adicionar os testes de controllers :confused:. Não versionei a API também, há realmente espaço pra fazer coisas legais.
 
-* 100m rasos: Menor tempo vence
-* Lançamento de Dardo: Maior distância vence
+Bom, vamos ao que interessa, para rodar o desafio você precisará apenas de um docker instalado na sua máquina. Eu criei um Makefile na raíz desse projeto para ajudar.
 
-## API 
+```shell
+# build e execução o container, pre-requisito
+# para os proximos comandos.
+make setup
 
-Através da API, deveremos ser capazes de:
+# executa os seeds
+make seed
 
-1. Criar uma competição
-2. Cadastrar resultados para uma competição (todos os campos são obrigatórios), 
-ex: 
-```json
-{
-  "competicao": "100m classificatoria 1", 
-  "atleta": "Joao das Neves", 
-  "value": "10.234", 
-  "unidade": "s"
-}
+# executa os testes
+make test
+
+# executa um robocop basicão
+make rubocop
+
 ```
-ex: 
-```json
-{
-  "competicao": "Dardo semifinal", 
-  "atleta": "Claudio", 
-  "value": "70.43", 
-  "unidade": "m"
-}
+
+## Rotas disponíveis
+
 ```
-4. Finalizar uma competição.
-3. Retornar o ranking da competição, exibindo a posição final de cada atleta.
+Prefix                Verb  URI                                 Pattern      Controller#Action
+
+competition_finish    PUT  /competitions/:competition_id/finish(.:format)    competitions#finish
+competition_ranking   GET  /competitions/:competition_id/ranking(.:format)   competitions#ranking
+competitions          POST /competitions(.:format)                           competitions#create
+results               POST /results(.:format)                                results#create
+                      GET  /results(.:format)                                results#index
 
 
-### **Detalhes**:
-1. A API não deve aceitar cadastros de resultados se a competição já estiver encerrada.
-2. A API pode retornar o ranking/resultado parcial, caso a disputa ainda não estiver encerrada.
-3. No caso da competição do lançamento de dardos, cada atleta terá 3 chances, e o resultado da competição deverá levar em conta o lançamento mais distante de cada atleta.
-4. O Design da API, bem como input e output dos dados, fica a seu critério, sendo inclusive um dos pontos de avaliação.
-5. Testes são obrigatórios.
-6. Necessária criação de um Readme para informar o passo a passo de como rodar a API.
-7. Não é necessário criar um banco de dados, podendo manter os dados na memória. (hint: sqlite)
-8. É imperativo a utilização de Ruby para a criação da API Rest.
-9. Sugerimos a utilização do git para versionar a solução. Um Pull Request (PR) para este repo, num branch com seu nome_sobrenome seria excelente, pois mais do que analisar o código, queremos analisar o fluxo de trabalho, a linha de pensamento e como evoluiu o código até chegar na solução.
+```
