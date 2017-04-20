@@ -1,0 +1,9 @@
+api:
+  resources:
+    sms: SMS
+  fields:
+    sms:
+      to: To
+  errors:
+    codes:
+      blank: cant_be_blank
