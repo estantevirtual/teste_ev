@@ -1,22 +1,22 @@
 -- Active: 1679237081569@@127.0.0.1@3306
 
-DROP TABLE `Competitions`;
-
-
-CREATE TABLE 
+-- TABELA DE COMPETIÇÕES
+CREATE TABLE IF NOT EXISTS
 Competitions (
-  id TEXT PRIMARY KEY UNIQUE NOT NULL,
+  id VARCHAR(64) PRIMARY KEY UNIQUE NOT NULL,
+  name VARCHAR(64) NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
   modality TEXT NOT NULL,
   finished BOOLEAN DEFAULT false
 );
+-- TABELA DE RESULTADOS
+CREATE TABLE IF NOT EXISTS
+Results (
+  id VARCHAR(64) PRIMARY KEY NOT NULL,
+  athlete VARCHAR(64) NOT NULL,
+  value REAL,
+  unit TEXT,
+  competition_id VARCHAR(64) NOT NULL,
+  FOREIGN KEY (competition_id) REFERENCES Competitions(id)
+);
 
--- CREATE TABLE 
--- Results (
---   id VARCHAR(64) TEXT PRIMARY KEY UNIQUE NOT NULL,
---   competition_id VARCHAR(64) NOT NULL,
---   FOREIGN KEY (competition_id) REFERENCES competicoes(id)
---   atleta VARCHAR(255) NOT NULL,
---   value REAL,
---   unidade TEXT,
--- );

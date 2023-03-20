@@ -1,5 +1,10 @@
 export type Competitions = {
   id: string;
+  name: string;
   modality: string;
-  finished: boolean;
 };
+
+export interface CompetitionInputDTO {
+  name: string;
+  modality: string;
+}

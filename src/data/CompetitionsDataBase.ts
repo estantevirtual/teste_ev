@@ -10,6 +10,7 @@ export class CompetitionsDataBase extends BaseDataBase {
       await CompetitionsDataBase.connection
         .insert({
           id: competition.id,
+          name: competition.name,
           modality: competition.modality,
         })
         .into(TABLE_COMPETITIONS);
