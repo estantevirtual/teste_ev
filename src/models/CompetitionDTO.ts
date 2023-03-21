@@ -1,5 +1,5 @@
 // modelos 
-export enum Cmodality{
+export enum Modality{
     TENMILEHIKE = "TENMILEHIKE",
     TOFIVESWIN = "TOFIVESWIN",
     POWERLIFTER = "POWERLIFTER",
@@ -10,9 +10,13 @@ export enum Cmodality{
 export class CompetitionDTO {
     constructor(
         public readonly id: string,
-        public readonly modality: Cmodality
+        public readonly Modality: Modality
     ){
         this.id= id
-        this.modality = modality
+        this.Modality = Modality
     }
+}
+
+export interface CompInputDTO{
+    Modality:string
 }

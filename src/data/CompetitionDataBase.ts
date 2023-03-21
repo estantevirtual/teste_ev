@@ -13,7 +13,7 @@ export class CompetitionDataBase extends BaseDatabase implements CompetitionRepo
             
         }
     }
-    async getCompetition(column: string, value: any): Promise<CompetitionDTO | undefined> {
+    async getCompetition(column: string, value: any): Promise<CompetitionDTO | any> {
         try { 
             const result = await BaseDatabase.connection(this.TABLE_NAME).select().where(column,value)
             return result[0]
