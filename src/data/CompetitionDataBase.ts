@@ -1,8 +1,9 @@
+// Cria database da competição
 import { BaseDatabase } from "./BaseDataBase";
 import { CompetitionRepository } from "../repositories/CompetitionRepository";
 import { CompetitionDTO } from "../models/CompetitionDTO";
 import { CustomError } from "../CustomError";
-
+//Cria A competição
 export class CompetitionDataBase extends BaseDatabase implements CompetitionRepository {
     public TABLE_NAME = "Competition_Creator"
     async createCompetition(newCompetition: CompetitionDTO): Promise<void> {

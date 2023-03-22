@@ -1,3 +1,3 @@
 import {app} from "./app"
-import { Router } from "express"
-app.use("/ping", Router)
+import { compRouter } from "./routes/CompRouter"
+app.use('/comp',compRouter)

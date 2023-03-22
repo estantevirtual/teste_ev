@@ -1,22 +1,15 @@
 // modelos 
-export enum Modality{
-    TENMILEHIKE = "TENMILEHIKE",
-    TOFIVESWIN = "TOFIVESWIN",
-    POWERLIFTER = "POWERLIFTER",
-    
 
-
-}
 export class CompetitionDTO {
     constructor(
         public readonly id: string,
-        public readonly Modality: Modality
+        public readonly name: string
     ){
         this.id= id
-        this.Modality = Modality
+        this.name = name
     }
 }
 
 export interface CompInputDTO{
-    Modality:string
+    name:string
 }

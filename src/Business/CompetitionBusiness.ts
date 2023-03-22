@@ -1,7 +1,8 @@
-import { CompInputDTO, Modality, CompetitionDTO } from "../models/CompetitionDTO";
+import { CompInputDTO, CompetitionDTO } from "../models/CompetitionDTO";
 import { CompetitionRepository } from "../repositories/CompetitionRepository";
 import { IdGenerator } from "../services/IdGenerator";
-import { DuoCompetition } from "../CustomError";
+import { DuoCompetition, CustomError } from "../CustomError";
+//Cria A competição
 
 export class CompetitionBusiness {
     constructor(
@@ -10,28 +11,29 @@ export class CompetitionBusiness {
 
     ) { }
 
-    async createCompetition(input: CompInputDTO): Promise<string> {
+    async createCompetition(input: CompInputDTO): Promise<void> {
 
 
 
 
-        const isCompetitionCreate = await this.competitionDatabase.getCompetition("Modality", input.Modality)
+        const isCompetitionCreate = await this.competitionDatabase.getCompetition("name", input.name)
         if (isCompetitionCreate) {
             throw new DuoCompetition()
         }
 
 
-        input.Modality.toUpperCase() === Modality.TENMILEHIKE ? Modality.POWERLIFTER : Modality.TOFIVESWIN
+
 
         const id = this.idGenerator.generateId()
 
 
-        const newCompetition = new CompetitionDTO(id,Modality.TENMILEHIKE)
-        await this.competitionDatabase.getCompetition
+        const newCompetition = new CompetitionDTO(id, input.name)
+        await this.competitionDatabase.createCompetition(newCompetition)
 
-        
+
 
     } catch(error: any) {
         throw new CustomError(error.statusCode, error.message)
     }
+
 }

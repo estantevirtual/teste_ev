@@ -1,0 +1,6 @@
+POST http://localhost:3003/comp/create
+Content-Type: application/json
+
+{
+    "name": "100m rasos"
+}
