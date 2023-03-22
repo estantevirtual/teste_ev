@@ -1,4 +1,4 @@
--- Active: 1679477059756@@35.226.146.116@3306@jbl-4416472-mauricio-toledo
+-- Active: 1679486518257@@35.226.146.116@3306@jbl-4416472-mauricio-toledo
 CREATE TABLE IF NOT EXISTS Competition_Creator (
   
   id VARCHAR(255) PRIMARY KEY,

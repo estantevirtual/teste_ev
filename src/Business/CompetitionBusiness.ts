@@ -1,7 +1,7 @@
 import { CompInputDTO, CompetitionDTO } from "../models/CompetitionDTO";
 import { CompetitionRepository } from "../repositories/CompetitionRepository";
 import { IdGenerator } from "../services/IdGenerator";
-import { DuoCompetition, CustomError } from "../CustomError";
+import { DuoCompetition, CustomError } from "../errors/CustomError";
 //Cria A competição
 
 export class CompetitionBusiness {

@@ -2,7 +2,7 @@
 import { BaseDatabase } from "./BaseDataBase";
 import { CompetitionRepository } from "../repositories/CompetitionRepository";
 import { CompetitionDTO } from "../models/CompetitionDTO";
-import { CustomError } from "../CustomError";
+import { CustomError } from "../errors/CustomError";
 //Cria A competição
 export class CompetitionDataBase extends BaseDatabase implements CompetitionRepository {
     public TABLE_NAME = "Competition_Creator"
