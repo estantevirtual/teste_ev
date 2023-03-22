@@ -2,10 +2,14 @@ export enum unity{
     METROS = "m",
     SEGUNDOS = "s"
 }
+export enum modality{
+    CEMRASOS = "100M RASOS",
+    DARDOS = "DARDOS"
+}
 export class AthleteDTO{
     constructor (
         public readonly id: string,
-        public readonly name: string,
+        public readonly competicao: modality,
         public readonly atletas: string,
         public readonly value: string,
         public readonly unidade: unity,
@@ -13,7 +17,7 @@ export class AthleteDTO{
 
     ){
         this.id = id;
-        this.name = name;   
+        this.competicao = competicao;   
         this.atletas = atletas;
         this.value = value;
         this.unidade = unidade;
@@ -22,7 +26,7 @@ export class AthleteDTO{
     }
 }
 export interface AthleteInputDTO{
-    name:string;
+    competicao:string;
     atletas:string;
     value:string;
     unidade:string;
