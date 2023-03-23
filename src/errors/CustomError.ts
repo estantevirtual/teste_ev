@@ -3,8 +3,3 @@ export class CustomError extends Error {
         super(message)
     }
 }
-export class DuoCompetition extends CustomError {
-    constructor () {
-        super (409, "Competição ja registrada!")
-    }
-}
