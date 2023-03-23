@@ -1,5 +1,3 @@
 import {app} from "./app"
-import { compRouter } from "./routes/CompRouter"
-import { AthleteRouter } from './routes/AthleteRouter';
-app.use('/comp',compRouter)
-app.use('/athletes', AthleteRouter)
+import { cemMRouter } from "./routes/100mRouter"
+app.use("/cemrasos", cemMRouter)
