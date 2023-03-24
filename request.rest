@@ -1,9 +1,9 @@
-POST http://localhost:3306/cemrasos/create
+POST http://localhost:3001/cemrasos/create
 Content-Type: application/json
 
 {
     "competicao" : "100m Rasos",
-    "atletas" : "Mauricio",
+    "atleta" : "Mauricio",
     "value" : "8:00",
     "unidade": "s"
 
