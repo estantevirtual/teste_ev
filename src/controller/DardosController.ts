@@ -1,13 +1,10 @@
 import { Request, Response } from "express-serve-static-core"
-import { ParsedQs } from "qs"
+
 import { DardosBusiness } from "../Business/DardosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
-import { Request,Response } from "express"
+
 
 export class DardosController {
-    getAthleteBy(req: Request<{}, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>, number>): void {
-        throw new Error("Method not implemented.")
-    }
     constructor (private dardosBusiness:DardosBusiness ) {}
 
     async createAthlete (req: Request, res: Response): Promise<void> {
@@ -27,7 +24,7 @@ export class DardosController {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
-    async getBandInfo (req: Request, res: Response): Promise<void> {
+    async getAthleteBy (req: Request, res: Response): Promise<void> {
         try {
             const input: inputGetModalityDTO = {
                 id: req.query.id as string,
