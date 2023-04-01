@@ -21,3 +21,6 @@ Content-Type: application/json
 
     
 }
+###
+GET  http://localhost:3003/cemrasos/all/cem
+content-type: application/json
