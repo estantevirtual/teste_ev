@@ -1,0 +1,14 @@
+import express from "express"
+import { DardosDataBase } from "../data/DardosDatabase"
+import { DardosBusiness } from "../Business/DardosBusiness"
+import { IdGenerator } from "../services/IdGenerator"
+import { DardosController } from "../controller/DardosController"
+export const dardosRouter = express.Router()
+
+const dardosDatabase = new DardosDataBase()
+const dardosBusiness = new DardosBusiness(dardosDatabase, new IdGenerator() )
+const dardosController = new DardosController(dardosBusiness)
+
+dardosRouter.post("/create", (req, res) => dardosController.createAthlete(req, res))
+dardosRouter.get("/info", (req, res) => dardosController.getAthleteBy(req, res))
+dardosRouter.get("/", (req, res) => dardosController.getAllBands(req, res))

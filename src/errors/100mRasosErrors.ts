@@ -14,3 +14,13 @@ export class DuoName extends CustomError {
         super (409, "Atleta ja registrado.")
     }
 }
+export class MissingNameOrId extends CustomError {
+    constructor () {
+        super (422, "Provide the id or the name of the band.")
+    }
+}
+export class AthleteIdNotFound extends CustomError {
+    constructor () {
+        super (404, "Atleta não encontrado.")
+    }
+}

@@ -1,9 +1,9 @@
 import { BaseDatabase } from "./BaseDataBase"
 import { CustomError } from "../errors/CustomError"
 import { ModalityRepository } from "../repositories/ModalityRepository"
-import { ModalityDTO, inputGetModalityDTO } from "../models/ModalityDTO"
-export class CemMDatabase extends BaseDatabase implements ModalityRepository {
-    private TABLE_NAME = "100MRASOS"
+import { ModalityDTO } from "../models/ModalityDTO"
+export class DardosDataBase extends BaseDatabase implements ModalityRepository {
+    private TABLE_NAME = "DARDOS"
     
     async createAthlete (newAthlete: ModalityDTO): Promise<void> {
         try {

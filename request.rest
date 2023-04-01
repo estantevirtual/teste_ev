@@ -1,4 +1,4 @@
-POST http://localhost:3303/cemrasos/create
+POST http://localhost:3003/cemrasos/create
 Content-Type: application/json
 
 {
@@ -6,6 +6,18 @@ Content-Type: application/json
     "atleta" : "Mauricio",
     "value" : "8:00",
     "unidade": "s"
+
+    
+}
+###
+POST http://localhost:3003/dardos/create
+Content-Type: application/json
+
+{
+    "competicao" : "DARDOS",
+    "atleta" : "Mauricio",
+    "value" : "30",
+    "unidade": "m"
 
     
 }

@@ -1,9 +1,14 @@
-import { CemMBusiness } from "../Business/100mRasosBusiness"
+import { Request, Response } from "express-serve-static-core"
+import { ParsedQs } from "qs"
+import { DardosBusiness } from "../Business/DardosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
 import { Request,Response } from "express"
 
-export class CemMcontroller {
-    constructor (private cemMbusiness:CemMBusiness ) {}
+export class DardosController {
+    getAthleteBy(req: Request<{}, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>, number>): void {
+        throw new Error("Method not implemented.")
+    }
+    constructor (private dardosBusiness:DardosBusiness ) {}
 
     async createAthlete (req: Request, res: Response): Promise<void> {
         try {
@@ -14,15 +19,15 @@ export class CemMcontroller {
                 unidade: req.body.unidade,
             }
 
-            await this.cemMbusiness.createAthlete(input)
+            await this.dardosBusiness.createAthlete(input)
 
-            res.status(201).send("Atleta registrado na modalidade 100m rasos!")
+            res.status(201).send("Atleta registrado na modalidade DARDOS!")
 
         } catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
-    async getAthleteBy (req: Request, res: Response): Promise<void> {
+    async getBandInfo (req: Request, res: Response): Promise<void> {
         try {
             const input: inputGetModalityDTO = {
                 id: req.query.id as string,
@@ -31,7 +36,7 @@ export class CemMcontroller {
                 
             }
 
-            const result = await this.cemMbusiness.getAthleteBy(input)
+            const result = await this.dardosBusiness.getAthleteBy(input)
             res.status(200).send(result)
 
         } catch (error: any) {
@@ -42,7 +47,7 @@ export class CemMcontroller {
 
     async getAllBands (req: Request, res: Response): Promise<void> {
         try {
-            const result = await this.cemMbusiness.getAllAthletes()
+            const result = await this.dardosBusiness.getAllAthletes()
             res.status(200).send(result)
         } catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
