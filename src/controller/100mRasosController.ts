@@ -48,4 +48,11 @@ export class CemMcontroller {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
-}
+async ranking(req: Request, res: Response): Promise<void> {
+    try{
+        const rankingResult = await this.cemMbusiness.ranking()
+        res.status(200).send(rankingResult)
+    } catch (error: any) {
+        res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+    } 
+} }

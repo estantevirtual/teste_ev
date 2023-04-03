@@ -28,4 +28,10 @@ export class CemMDatabase extends BaseDatabase implements ModalityRepository {
             throw new CustomError(error.statusCode, error.message)
         }
     }
+async ranking (): Promise<ModalityDTO[]> {
+    try {
+        return (await BaseDatabase.connection(this.TABLE_NAME)).sort()
+} catch(error: any) {
+    throw new CustomError(error.statusCode, error.message)
 }
+}}

@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "competicao" : "100m Rasos",
-    "atleta" : "Mauricio",
-    "value" : "8:00",
+    "atleta" : "cleto",
+    "value" : "7:00",
     "unidade": "s"
 
     
@@ -23,4 +23,8 @@ Content-Type: application/json
 }
 ###
 GET  http://localhost:3003/cemrasos/all/cem
+content-type: application/json
+###
+
+GET  http://localhost:3003/cemrasos/all/ranking
 content-type: application/json
