@@ -42,12 +42,20 @@ export class DardosController {
     }
 
 
-    async getAllBands (req: Request, res: Response): Promise<void> {
+    async getAllAthlete (req: Request, res: Response): Promise<void> {
         try {
-            const result = await this.dardosBusiness.getAllAthletes()
+            const result = await this.dardosBusiness.getAllAthlete()
             res.status(200).send(result)
         } catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
+    async ranking(req: Request, res: Response): Promise<void> {
+        try{
+            const rankingResult = await this.dardosBusiness.ranking()
+            res.status(200).send(rankingResult)
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+        } 
+    } 
 }

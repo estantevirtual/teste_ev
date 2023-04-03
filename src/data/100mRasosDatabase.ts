@@ -30,7 +30,7 @@ export class CemMDatabase extends BaseDatabase implements ModalityRepository {
     }
 async ranking (): Promise<ModalityDTO[]> {
     try {
-        return (await BaseDatabase.connection(this.TABLE_NAME)).sort()
+        return (await BaseDatabase.connection(this.TABLE_NAME)).sort((a,b) => a.value - b.value)
 } catch(error: any) {
     throw new CustomError(error.statusCode, error.message)
 }

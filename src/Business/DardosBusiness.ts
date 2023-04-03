@@ -61,7 +61,7 @@ export class DardosBusiness {
     }
 
 
-    async getAllAthletes (): Promise<ModalityDTO[]> {
+    async getAllAthlete (): Promise<ModalityDTO[]> {
         try {
             const result = await this.athleteDataBase.getAllAthlete()
             return result
@@ -69,4 +69,12 @@ export class DardosBusiness {
             throw new CustomError(error.statusCode, error.message)
         }
     }
-}
+    async ranking (): Promise<ModalityDTO[]> {
+        try{
+            const rankingResult = await this.athleteDataBase.ranking()
+            return rankingResult
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        } 
+    }
+    }

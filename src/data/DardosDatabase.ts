@@ -28,4 +28,11 @@ export class DardosDataBase extends BaseDatabase implements ModalityRepository {
             throw new CustomError(error.statusCode, error.message)
         }
     }
+    async ranking (): Promise<ModalityDTO[]> {
+        try {
+            return (await BaseDatabase.connection(this.TABLE_NAME)).sort((a,b) => a.value - b.value)
+    } catch(error: any) {
+        throw new CustomError(error.statusCode, error.message)
+    }
+    }
 }
