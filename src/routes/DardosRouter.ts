@@ -11,4 +11,4 @@ const dardosController = new DardosController(dardosBusiness)
 
 dardosRouter.post("/create", (req, res) => dardosController.createAthlete(req, res))
 dardosRouter.get("/info/dardos", (req, res) => dardosController.getAthleteBy(req, res))
-dardosRouter.get("/all/cem", (req, res) => dardosController.getAllBands(req, res))
+dardosRouter.get("/all/cem", (req, res) => dardosController.getAllAthlete(req, res))

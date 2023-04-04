@@ -12,5 +12,5 @@ const cemMController = new CemMcontroller(cemMBusiness)
 
 cemMRouter.post("/create", (req, res) => cemMController.createAthlete(req, res))
 cemMRouter.get("/info/cem", (req, res) => cemMController.getAthleteBy(req, res))
-cemMRouter.get("/all/cem", (req, res) => cemMController.getAllBands(req, res))
+cemMRouter.get("/all/cem", (req, res) => cemMController.getAllAthlete(req, res))
 cemMRouter.get("/all/ranking", (req, res) => cemMController.ranking(req, res))
