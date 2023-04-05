@@ -34,4 +34,5 @@ async ranking (): Promise<ModalityDTO[]> {
 } catch(error: any) {
     throw new CustomError(error.statusCode, error.message)
 }
-}}
+} 
+}

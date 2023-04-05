@@ -1,10 +1,10 @@
-POST http://localhost:3300/cemrasos/create
+POST  http://localhost:3300/cemrasos/create
 Content-Type: application/json
 
 {
     "competicao" : "100m Rasos",
-    "atleta" : "cleto",
-    "value" : 7.00,
+    "atleta" : "Pedro",
+    "value" : 6.00,
     "unidade": "s"
 
     
@@ -16,15 +16,18 @@ Content-Type: application/json
 {
     "competicao" : "DARDOS",
     "atleta" : "Mauricio",
-    "value" : "30",
+    "value" : 30.00,
     "unidade": "m"
 
     
 }
 ###
-GET  http://localhost:3003/cemrasos/all/cem
+GET  http://localhost:3300/cemrasos/all/cem
 content-type: application/json
 ###
 
-GET  http://localhost:3003/cemrasos/all/ranking
+GET  http://localhost:3300/cemrasos/all/ranking
+content-type: application/json
+###
+GET http://localhost:3300/dardos/all/ranking
 content-type: application/json

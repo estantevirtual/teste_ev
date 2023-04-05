@@ -30,7 +30,7 @@ export class DardosDataBase extends BaseDatabase implements ModalityRepository {
     }
     async ranking (): Promise<ModalityDTO[]> {
         try {
-            return (await BaseDatabase.connection(this.TABLE_NAME)).sort((a,b) => a.value - b.value)
+            return (await BaseDatabase.connection(this.TABLE_NAME)).sort((a,b) => b.value - a.value)
     } catch(error: any) {
         throw new CustomError(error.statusCode, error.message)
     }
