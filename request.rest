@@ -34,3 +34,7 @@ content-type: application/json
 ###
 POST  http://localhost:3300/cemrasos/end
 Content-Type: application/json
+###
+POST http://localhost:3300/dardos/end
+content-type: application/json
+

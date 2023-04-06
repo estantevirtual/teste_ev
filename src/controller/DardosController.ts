@@ -3,7 +3,7 @@ import { Request, Response } from "express-serve-static-core"
 import { DardosBusiness } from "../Business/DardosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
 
-
+const endIt = true
 export class DardosController {
     constructor (private dardosBusiness:DardosBusiness ) {}
 
@@ -17,10 +17,14 @@ export class DardosController {
             }
 
             await this.dardosBusiness.createAthlete(input)
+            if(endIt === true){
+                console.log("Competição Encerrada!");
+                
+            } else{
 
-            res.status(201).send("Atleta registrado na modalidade DARDOS!")
+            res.status(201).send("Atleta registrado na modalidade 100m rasos!")
 
-        } catch (error: any) {
+        }} catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }

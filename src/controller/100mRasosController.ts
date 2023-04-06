@@ -18,11 +18,11 @@ export class CemMcontroller {
             if(endIt === true){
                 console.log("Competição Encerrada!");
                 
-            } else
+            } else{
 
             res.status(201).send("Atleta registrado na modalidade 100m rasos!")
 
-        } catch (error: any) {
+        }} catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }

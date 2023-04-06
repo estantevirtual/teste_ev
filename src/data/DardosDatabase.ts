@@ -37,7 +37,7 @@ export class DardosDataBase extends BaseDatabase implements ModalityRepository {
     }
     deleteModality = async (competicao: string): Promise<void> => {
         try {
-           await BaseDatabase.connection(this.TABLE_NAME).delete().where("competicao", competicao)
+           await BaseDatabase.connection(this.TABLE_NAME).delete()
         } catch (err: any) {
             throw new CustomError(err.statusCode, err.message)
         }
