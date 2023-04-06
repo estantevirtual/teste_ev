@@ -77,4 +77,13 @@ export class DardosBusiness {
             throw new CustomError(error.statusCode, error.message)
         } 
     }
+    deleteModality = async (input: inputModalityDTO): Promise<void> => {
+        try {
+           
+            await this.athleteDataBase.deleteModality(input.competicao)
+    
+        } catch (err: any) {
+            throw new CustomError(err.statusCode, err.message)
+        }
+    }
     }

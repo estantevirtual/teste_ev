@@ -5,4 +5,5 @@ export interface ModalityRepository {
     getAthleteBy (column: string, value: string): Promise<any>
     getAllAthlete (): Promise<ModalityDTO[]>
     ranking(): Promise<ModalityDTO[]>
+    deleteModality (competicao: string): Promise<void>
 }

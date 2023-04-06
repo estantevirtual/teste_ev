@@ -13,3 +13,4 @@ dardosRouter.post("/create", (req, res) => dardosController.createAthlete(req, r
 dardosRouter.get("/info/dardos", (req, res) => dardosController.getAthleteBy(req, res))
 dardosRouter.get("/all/cem", (req, res) => dardosController.getAllAthlete(req, res))
 dardosRouter.get("/all/ranking", (req, res) => dardosController.ranking(req, res))
+dardosRouter.post("/end",(req,res)=> dardosController.deleteModality(req, res))

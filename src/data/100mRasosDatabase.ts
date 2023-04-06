@@ -1,7 +1,7 @@
 import { BaseDatabase } from "./BaseDataBase"
 import { CustomError } from "../errors/CustomError"
 import { ModalityRepository } from "../repositories/ModalityRepository"
-import { ModalityDTO, inputGetModalityDTO } from "../models/ModalityDTO"
+import { ModalityDTO} from "../models/ModalityDTO"
 export class CemMDatabase extends BaseDatabase implements ModalityRepository {
     private TABLE_NAME = "100MRASOS"
     
@@ -35,4 +35,11 @@ async ranking (): Promise<ModalityDTO[]> {
     throw new CustomError(error.statusCode, error.message)
 }
 } 
+deleteModality = async (competicao: string): Promise<void> => {
+    try {
+       await BaseDatabase.connection(this.TABLE_NAME).delete().where("competicao", competicao)
+    } catch (err: any) {
+        throw new CustomError(err.statusCode, err.message)
+    }
+}
 }

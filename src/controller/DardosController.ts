@@ -58,4 +58,21 @@ export class DardosController {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         } 
     } 
-}
+    deleteModality = async (req: Request, res: Response): Promise<void> => {
+        let endIt = "Competição encerrada"
+        try {
+            const input: inputModalityDTO = {
+                competicao: req.body.competicao,
+                atleta: req.body.atleta,
+                value: req.body.value,
+                unidade: req.body.unidade,
+            }
+    
+            await this.dardosBusiness.deleteModality(input)
+            res.status(201).send( endIt )
+            
+        } catch (err: any) {
+            res.status(err.statusCode || 400).send(err.message)
+        }
+    }
+    }
