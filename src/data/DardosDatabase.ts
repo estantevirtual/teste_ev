@@ -1,9 +1,9 @@
 import { BaseDatabase } from "./BaseDataBase"
 import { CustomError } from "../errors/CustomError"
 import { ModalityRepository } from "../repositories/ModalityRepository"
-import { ModalityDTO} from "../models/ModalityDTO"
-export class CemMDatabase extends BaseDatabase implements ModalityRepository {
-    private TABLE_NAME = "100MRASOS"
+import { ModalityDTO } from "../models/ModalityDTO"
+export class DardosDataBase extends BaseDatabase implements ModalityRepository {
+    private TABLE_NAME = "DARDOS"
     
     async createAthlete (newAthlete: ModalityDTO): Promise<void> {
         try {
@@ -28,18 +28,18 @@ export class CemMDatabase extends BaseDatabase implements ModalityRepository {
             throw new CustomError(error.statusCode, error.message)
         }
     }
-async ranking (): Promise<ModalityDTO[]> {
-    try {
-        return (await BaseDatabase.connection(this.TABLE_NAME)).sort((a,b) => a.value - b.value)
-} catch(error: any) {
-    throw new CustomError(error.statusCode, error.message)
-}
-} 
-deleteModality = async (competicao: string): Promise<void> => {
-    try {
-       await BaseDatabase.connection(this.TABLE_NAME).delete()
-    } catch (err: any) {
-        throw new CustomError(err.statusCode, err.message)
+    async ranking (): Promise<ModalityDTO[]> {
+        try {
+            return (await BaseDatabase.connection(this.TABLE_NAME)).sort((a,b) => b.value - a.value)
+    } catch(error: any) {
+        throw new CustomError(error.statusCode, error.message)
     }
-}
-}
+    }
+    deleteModality = async (competicao: string): Promise<void> => {
+        try {
+           await BaseDatabase.connection(this.TABLE_NAME).delete()
+        } catch (err: any) {
+            throw new CustomError(err.statusCode, err.message)
+        }
+    }
+    }

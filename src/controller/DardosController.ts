@@ -1,9 +1,11 @@
-import { CemMBusiness } from "../Business/100mRasosBusiness"
+import { Request, Response } from "express-serve-static-core"
+
+import { DardosBusiness } from "../Business/DardosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
-import { Request,Response } from "express"
-let endIt = true
-export class CemMcontroller {
-    constructor (private cemMbusiness:CemMBusiness ) {}
+
+const endIt = true
+export class DardosController {
+    constructor (private dardosBusiness:DardosBusiness ) {}
 
     async createAthlete (req: Request, res: Response): Promise<void> {
         try {
@@ -14,7 +16,7 @@ export class CemMcontroller {
                 unidade: req.body.unidade,
             }
 
-            await this.cemMbusiness.createAthlete(input)
+            await this.dardosBusiness.createAthlete(input)
             if(endIt === true){
                 console.log("Competição Encerrada!");
                 
@@ -35,7 +37,7 @@ export class CemMcontroller {
                 
             }
 
-            const result = await this.cemMbusiness.getAthleteBy(input)
+            const result = await this.dardosBusiness.getAthleteBy(input)
             res.status(200).send(result)
 
         } catch (error: any) {
@@ -46,35 +48,35 @@ export class CemMcontroller {
 
     async getAllAthlete (req: Request, res: Response): Promise<void> {
         try {
-            const result = await this.cemMbusiness.getAllAthletes()
+            const result = await this.dardosBusiness.getAllAthlete()
             res.status(200).send(result)
         } catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
-async ranking(req: Request, res: Response): Promise<void> {
-    try{
-        const rankingResult = await this.cemMbusiness.ranking()
-        res.status(200).send(rankingResult)
-    } catch (error: any) {
-        res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+    async ranking(req: Request, res: Response): Promise<void> {
+        try{
+            const rankingResult = await this.dardosBusiness.ranking()
+            res.status(200).send(rankingResult)
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+        } 
     } 
-} 
-deleteModality = async (req: Request, res: Response): Promise<void> => {
-    let endIt = "Competição encerrada"
-    try {
-        const input: inputModalityDTO = {
-            competicao: req.body.competicao,
-            atleta: req.body.atleta,
-            value: req.body.value,
-            unidade: req.body.unidade,
+    deleteModality = async (req: Request, res: Response): Promise<void> => {
+        let endIt = "Competição encerrada"
+        try {
+            const input: inputModalityDTO = {
+                competicao: req.body.competicao,
+                atleta: req.body.atleta,
+                value: req.body.value,
+                unidade: req.body.unidade,
+            }
+    
+            await this.dardosBusiness.deleteModality(input)
+            res.status(201).send( endIt )
+            
+        } catch (err: any) {
+            res.status(err.statusCode || 400).send(err.message)
         }
-
-        await this.cemMbusiness.deleteModality(input)
-        res.status(201).send( endIt )
-        
-    } catch (err: any) {
-        res.status(err.statusCode || 400).send(err.message)
     }
-}
-}
+    }
