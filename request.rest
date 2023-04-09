@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "competicao" : "100m Rasos",
-    "atleta" : "Pedro",
-    "value" : 6.00,
+    "atleta" : "enzo pietro",
+    "value" : 9.00,
     "unidade": "s"
 
     

@@ -3,7 +3,7 @@ import { Request, Response } from "express-serve-static-core"
 import { DardosBusiness } from "../Business/DardosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
 
-const endIt = true
+const endIt:boolean = false
 export class DardosController {
     constructor (private dardosBusiness:DardosBusiness ) {}
 
@@ -18,7 +18,9 @@ export class DardosController {
 
             await this.dardosBusiness.createAthlete(input)
             if(endIt === true){
-                console.log("Competição Encerrada!");
+                res.status(200).json({
+                    message: "Competição encerrada."
+                })
                 
             } else{
 
@@ -63,7 +65,7 @@ export class DardosController {
         } 
     } 
     deleteModality = async (req: Request, res: Response): Promise<void> => {
-        let endIt = "Competição encerrada"
+       
         try {
             const input: inputModalityDTO = {
                 competicao: req.body.competicao,
@@ -73,7 +75,7 @@ export class DardosController {
             }
     
             await this.dardosBusiness.deleteModality(input)
-            res.status(201).send( endIt )
+            res.status(201).send( endIt = true)
             
         } catch (err: any) {
             res.status(err.statusCode || 400).send(err.message)
