@@ -3,7 +3,7 @@ import { Request, Response } from "express-serve-static-core"
 import { DardosBusiness } from "../Business/DardosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
 
-const endIt:boolean = false
+let endIt:boolean = false
 export class DardosController {
     constructor (private dardosBusiness:DardosBusiness ) {}
 
