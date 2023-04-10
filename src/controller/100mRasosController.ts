@@ -1,7 +1,7 @@
 import { CemMBusiness } from "../Business/100mRasosBusiness"
 import { inputGetModalityDTO, inputModalityDTO } from "../models/ModalityDTO"
 import { Request,Response } from "express"
-let endIt = true
+let endIt = false
 export class CemMcontroller {
     constructor (private cemMbusiness:CemMBusiness ) {}
 
@@ -16,7 +16,7 @@ export class CemMcontroller {
 
             await this.cemMbusiness.createAthlete(input)
             if(endIt === true){
-                console.log("Competição Encerrada!");
+                res.status(201).send("Competição encerrada");
                 
             } else{
 
@@ -61,7 +61,7 @@ async ranking(req: Request, res: Response): Promise<void> {
     } 
 } 
 deleteModality = async (req: Request, res: Response): Promise<void> => {
-    let endIt = "Competição encerrada"
+    let endIt:boolean = false
     try {
         const input: inputModalityDTO = {
             competicao: req.body.competicao,
@@ -71,7 +71,7 @@ deleteModality = async (req: Request, res: Response): Promise<void> => {
         }
 
         await this.cemMbusiness.deleteModality(input)
-        res.status(201).send( endIt )
+        res.status(201).send( endIt = true)
         
     } catch (err: any) {
         res.status(err.statusCode || 400).send(err.message)
