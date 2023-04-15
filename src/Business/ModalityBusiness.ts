@@ -1,8 +1,10 @@
 import { ModalityDatabase } from "../data/ModalityDatabase";
 import { modalityDTO } from "../models/ModalityDTO";
 import { isValidModalityInput,lowerCase} from "../models/functions/functions";
-import { GeneratorId } from "../models/GenerateId";
-const idGenerator = new GeneratorId
+import {IdGenerator} from "../services/IdGenerator
+
+const idGenerator = new IdGenerator()
+
 export class ModaBusiness {
 
     private modalityDatabase: ModalityDatabase;
