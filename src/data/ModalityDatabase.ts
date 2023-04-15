@@ -2,7 +2,7 @@ import { modalityDTO } from "../models/ModalityDTO";
 import { db } from "./BaseDataBase";
 export class ModalityDatabase {
 
-    insertCompetition = async(input:modalityDTO):Promise<void> => {
+    insertModality = async(input:modalityDTO):Promise<void> => {
         try {
             await db.run(`INSERT INTO modalitys (id, name, type) VALUES(?,?,?)`,[input.id, input.name, input.type])
         } catch (error:any) {

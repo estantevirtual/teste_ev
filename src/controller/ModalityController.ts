@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import {ModalityBusiness} from "./"
+import { ModalityBusiness } from "../Business/ModalityBusiness";
 
 const modalityBusiness = new ModalityBusiness()
 

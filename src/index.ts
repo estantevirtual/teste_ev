@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express"
 
 import cors from 'cors'
-
-import { modalityRouter } from "./routes/modalityRouter"
+import { modalityRouter } from "./routes/ModalityRouter"
+import { runDB } from "./models/functions/functions"
 
 
 
@@ -21,11 +21,11 @@ app.listen(3003, () => {
 });
 
 
-startDB()
+runDB()
 
 app.use("/modality", modalityRouter)
 
-app.use("/score", scoreRouter)
+
 
 
   

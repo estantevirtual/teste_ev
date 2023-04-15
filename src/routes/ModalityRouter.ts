@@ -1,15 +1,15 @@
 import express from "express";
 import { ModalityController } from "../controller/ModalityController";
 
-export const competitionRouter = express.Router()
+export const modalityRouter = express.Router()
 const modalityController = new ModalityController()
 
-modalityController.post("/create", modalityController.insertModality)
+modalityRouter.post("/create", modalityController.insertModality)
 
 
-modalityController.get("/getall", modalityController.getAll)
+modalityRouter.get("/getall", modalityController.getAll)
 
-modalityController.put("/end", modalityController.finishModality)
+modalityRouter.put("/end", modalityController.finishModality)
 
 
-modalityController.delete("/delete", modalityController.deleteModalityById)
+modalityRouter.delete("/delete", modalityController.deleteModalityById)

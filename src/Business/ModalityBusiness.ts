@@ -1,11 +1,11 @@
 import { ModalityDatabase } from "../data/ModalityDatabase";
 import { modalityDTO } from "../models/ModalityDTO";
 import { isValidModalityInput,lowerCase} from "../models/functions/functions";
-import {IdGenerator} from "../services/IdGenerator
+import { IdGenerator } from "../services/IdGenerator";
 
 const idGenerator = new IdGenerator()
 
-export class ModaBusiness {
+export class ModalityBusiness {
 
     private modalityDatabase: ModalityDatabase;
 
@@ -42,7 +42,7 @@ export class ModaBusiness {
         try {
             let rows = await this.modalityDatabase.getAll("modalitys")
             if (rows.length < 1) {
-                throw new Error("No competitions was found :/");    
+                throw new Error("No modality was found :/");    
             }
             return rows
         } catch (error:any) {
