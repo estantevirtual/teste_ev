@@ -1,20 +1,17 @@
-import knex from 'knex'
-import dotenv from 'dotenv'
+import sqlite3 from 'sqlite3';
 
-dotenv.config()
+class Database {
+  private static instance: sqlite3.Database;
 
-export class BaseDatabase {
+  private constructor() {}
 
-   protected static connection = knex({
-      client: 'mysql',
-      connection: {
-         host: process.env.DB_HOST,
-         user: process.env.DB_USER,
-         password: process.env.DB_PASSWORD,
-         database: process.env.DB_SCHEMA,
-         port: 3306,
-         multipleStatements: true
-      }
-   })
-
+  public static getInstance(): sqlite3.Database {
+    if (!Database.instance) {
+      // cria a conexão com o banco de dados em memória    Database.instance = new sqlite3.Database(':memory:');
+    }
+    return Database.instance;
+  }
 }
+
+
+export const db = Database.getInstance();

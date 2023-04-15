@@ -1,5 +1,31 @@
-import {app} from "./app"
-import { cemMRouter } from "./routes/100mRouter"
-import { dardosRouter } from "./routes/DardosRouter"
-app.use("/cemrasos", cemMRouter)
-app.use("/dardos", dardosRouter)
+import express, { Request, Response } from "express"
+
+import cors from 'cors'
+
+import { competitionRouter } from "./routes/competitionRouter"
+
+
+
+
+
+
+const app = express()
+
+app.use(express.json())
+
+app.use(cors())
+
+app.listen(3003, () => {
+    console.log(`Server is running in http://localhost:3003`);
+    
+});
+
+
+startDB()
+
+app.use("/modality", modalityRouter)
+
+app.use("/score", scoreRouter)
+
+
+  
