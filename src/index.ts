@@ -2,7 +2,7 @@ import express, { Request, Response } from "express"
 
 import cors from 'cors'
 
-import { competitionRouter } from "./routes/competitionRouter"
+import { modalityRouter } from "./routes/modalityRouter"
 
 
 
