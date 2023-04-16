@@ -2,39 +2,27 @@ POST http://localhost:3003/modality/create
 Content-Type: application/json
 
 {
-    "competicao" : "100m Rasos",
-    "atleta" : "enzo pietro",
-    "value" : 9.00,
-    "unidade": "s"
 
+"name":"100m semifinal - masculino",
+"type":"100m"
     
 }
 ###
-POST http://localhost:3003/dardos/create
+GET  http://localhost:3003/modality/getall
 Content-Type: application/json
+
+###
+POST http://localhost:3003/score/create
+content-type: application/json
 
 {
-    "competicao" : "DARDOS",
-    "atleta" : "Mauricio",
-    "value" : 30.00,
-    "unidade": "m"
-
     
+     "modality_id":"8742ab18-0944-4810-9726-f5dc6afc9949",
+    "athlete":"Enzo Pietro",
+    "value":7,
+    "unit":"s"
 }
 ###
-GET  http://localhost:3300/cemrasos/all/cem
-content-type: application/json
-###
-
-GET  http://localhost:3300/cemrasos/all/ranking
-content-type: application/json
-###
-GET http://localhost:3300/dardos/all/ranking
-content-type: application/json
-###
-POST  http://localhost:3300/cemrasos/end
+GET http://localhost:3003/score/getall
 Content-Type: application/json
-###
-POST http://localhost:3300/dardos/end
-content-type: application/json
 

@@ -7,7 +7,8 @@ class Database {
 
   public static getInstance(): sqlite3.Database {
     if (!Database.instance) {
-      // cria a conexão com o banco de dados em memória    Database.instance = new sqlite3.Database(':memory:');
+      
+      Database.instance = new sqlite3.Database(':memory:');
     }
     return Database.instance;
   }

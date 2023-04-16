@@ -1,5 +1,6 @@
-import { modalityDTO } from "../models/ModalityDTO";
+import { modalityDTO, modality } from "../models/ModalityDTO";
 import { db } from "./BaseDataBase";
+
 export class ModalityDatabase {
 
     insertModality = async(input:modalityDTO):Promise<void> => {
@@ -8,8 +9,9 @@ export class ModalityDatabase {
         } catch (error:any) {
             throw new Error(error.message);
         }
-    } 
-    getAll(tableName: string): Promise<any[]> {
+    }
+
+    getAllData(tableName: string): Promise<any[]> {
         return new Promise((resolve, reject) => {
           const query = `SELECT * FROM ${tableName}`;
           db.all(query, (err, rows) => {
@@ -53,30 +55,5 @@ export class ModalityDatabase {
           throw new Error(error.message);
         }
       };
-
-      deleteModalityById = async (id: string): Promise<void> => {
-        try {
-          await new Promise<void>((resolve, reject) => {
-            db.run(
-              `DELETE FROM modalitys WHERE id = ?`,
-              [id],
-              (err) => {
-                if (err) {
-                  reject(err);
-                } else {
-                  resolve();
-                }
-              }
-            );
-          });
-        } catch (error:any) {
-          throw new Error(error.message);
-          
-        }
-      };
-
-      clearTable = async() => {
-        await db.run(`DELETE FROM modalitys`)
-    }
       
 }

@@ -10,3 +10,9 @@ export type modality = {
     type:string,
     finished:number
 }
+
+
+export interface ModalityRanking {
+    name: any;
+    ranking: any[];
+  }

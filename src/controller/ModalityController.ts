@@ -1,5 +1,6 @@
-import { Request, Response } from "express";
+import { log } from "console";
 import { ModalityBusiness } from "../Business/ModalityBusiness";
+import { Request, Response } from "express";
 
 const modalityBusiness = new ModalityBusiness()
 
@@ -15,10 +16,11 @@ export class ModalityController {
     }
   }
 
-  getAll = async (req: Request, res: Response) => {
+  getAllData = async (req: Request, res: Response) => {
     try {
-      let result = await modalityBusiness.getAll()
+      let result = await modalityBusiness.getAllData()
       res.json(result)
+      console.log(result);
 
     } catch (error: any) {
       res.send(error.message)
@@ -28,7 +30,7 @@ export class ModalityController {
   finishModality = async (req: Request, res: Response) => {
     try {
       const id = req.query.id as string;
-      await modalityBusiness.finishModality(id);
+      await modalityBusiness.finishCompetition(id);
       res.status(201).send("Modality has ended successfully!");
     } catch (error: any) {
       if (error.message === "Modality does not exist") {
@@ -38,15 +40,4 @@ export class ModalityController {
       }
     }
   };
-
-  deleteModalityById = async(req:Request, res:Response):Promise<void> => {
-    const id = req.query.id as string;
-    try {
-      await modalityBusiness.deleteModalityById(id);
-      res.send("Modality was deleted succesfully!");
-    } catch (error:any) {
-      res.status(500).json({ error: error.message });
-    }
-  }
-
 }
