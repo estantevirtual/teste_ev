@@ -17,7 +17,7 @@ content-type: application/json
 
 {
     
-     "modality_id":"8742ab18-0944-4810-9726-f5dc6afc9949",
+     "modality_id":"3003a622-042e-485d-8f22-9ce3ac91f2eb",
     "athlete":"Enzo Pietro",
     "value":7,
     "unit":"s"
@@ -25,4 +25,11 @@ content-type: application/json
 ###
 GET http://localhost:3003/score/getall
 Content-Type: application/json
+###
+PUT http://localhost:3003/modality/end/?id=3003a622-042e-485d-8f22-9ce3ac91f2eb
+content-type: application/json
+###
+GET http://localhost:3003/score/rank?id=3003a622-042e-485d-8f22-9ce3ac91f2eb
+Content-Type: application/json
+###
 
