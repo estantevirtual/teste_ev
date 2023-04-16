@@ -11,4 +11,4 @@ modalityRouter.get("/getall", modalityController.getAllData)
 
 modalityRouter.put("/end", modalityController.finishModality)
 
-
+modalityRouter.delete("/delete", modalityController.deleteModalityById)

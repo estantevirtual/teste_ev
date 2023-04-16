@@ -56,4 +56,30 @@ export class ModalityDatabase {
         }
       };
       
+      deleteModalityById = async (id: string): Promise<void> => {
+        try {
+          await new Promise<void>((resolve, reject) => {
+            db.run(
+              `DELETE FROM modalitys WHERE id = ?`,
+              [id],
+              (err) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  resolve();
+                }
+              }
+            );
+          });
+        } catch (error:any) {
+          throw new Error(error.message);
+          
+        }
+      };
+
+      clearTable = async() => {
+        await db.run(`DELETE FROM modalitys`)
+    }
+      
 }
+    

@@ -1,4 +1,4 @@
-import { log } from "console";
+
 import { ModalityBusiness } from "../Business/ModalityBusiness";
 import { Request, Response } from "express";
 
@@ -40,4 +40,14 @@ export class ModalityController {
       }
     }
   };
+  deleteModalityById = async(req:Request, res:Response):Promise<void> => {
+    const id = req.query.id as string;
+    try {
+      await modalityBusiness.deleteModalityById(id);
+      res.send("Modality was deleted succesfully!");
+    } catch (error:any) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
 }

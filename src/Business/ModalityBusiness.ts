@@ -1,13 +1,19 @@
 import { ModalityDatabase } from "../data/ModalityDatabase";
-import { modalityDTO,modality } from "../models/ModalityDTO";
+import { modalityDTO, modality } from '../models/ModalityDTO';
 import { lowerCase, isUnitValid,isValidModalityInput } from "../functions/functions";
 import { IdGenerator } from "../services/IdGenerator";
 
 
-const modalityDatabase = new ModalityDatabase()
+
 const idGenerator = new IdGenerator()
 
 export class ModalityBusiness {
+
+    private modalityDatabase: ModalityDatabase;
+
+    constructor(modalityDatabase?: ModalityDatabase) {
+        this.modalityDatabase = modalityDatabase || new ModalityDatabase();
+      }
 
 
     insertModality = async(name:string, type:string) => {
@@ -28,7 +34,7 @@ export class ModalityBusiness {
                 name,
                 type:typeInLower
             }
-            await modalityDatabase.insertModality(input)
+            await this.modalityDatabase.insertModality(input)
         } catch (error:any) {
             throw new Error(error.message);
         }
@@ -36,7 +42,7 @@ export class ModalityBusiness {
 
     getAllData = async() => {
         try {
-            let rows = await modalityDatabase.getAllData("modalitys")
+            let rows = await this.modalityDatabase.getAllData("modalitys")
             if (rows == null || rows == undefined) {
                 console.log(rows);  
                 throw new Error("No modalitys was found ");    
@@ -53,14 +59,27 @@ export class ModalityBusiness {
           if (!id) {
             throw new Error("ID must be passed as parameter");
           }
-          const modality:any = await modalityDatabase.getById(id);
+          const modality:any = await this.modalityDatabase.getById(id);
           console.log(modality); 
           if (modality.length < 1) {
             throw new Error("Modality does not exist");
           }
-          await modalityDatabase.finishModality(id);
+          await this.modalityDatabase.finishModality(id);
         } catch (error:any) {
           throw new Error(error.message);
         }
-      };
-}
+    }
+      deleteModalityById = async (id:string):Promise<boolean> => {
+        try {
+            const modality:any = await  this.modalityDatabase.getById(id)
+            if (modality.length < 1) {
+                throw new Error("The modality does not exist");     
+            }
+            await this.modalityDatabase.deleteModalityById
+            return true
+        } catch (error:any) {
+            throw new Error(error.message);
+            
+        }
+      }
+    }
