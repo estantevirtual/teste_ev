@@ -44,3 +44,48 @@ ex:
 7. Não é necessário criar um banco de dados, podendo manter os dados na memória. (hint: sqlite)
 8. É imperativo a utilização de Ruby para a criação da API Rest.
 9. Sugerimos a utilização do git para versionar a solução. Um Pull Request (PR) para este repo, num branch com seu nome_sobrenome seria excelente, pois mais do que analisar o código, queremos analisar o fluxo de trabalho, a linha de pensamento e como evoluiu o código até chegar na solução.
+
+
+
+
+API Jogos Olímpicos
+API REST em TypeScript para gerenciamento de competições e resultados de Jogos Olímpicos. A API é capaz de criar competições, cadastrar resultados e exibir o ranking da competição.
+
+Instalação
+Clone o Repositório
+git clone [https://github.com/mlt3800/teste_ev]
+
+Instale as dependências
+npm install
+
+Uso
+Rode a aplicação
+npm run start
+
+||
+
+npm run dev
+
+Leia a documentação e faça as requisições com a aplicação rodando
+## 📌 Link Documentação Postman
+[postman](https://documenter.getpostman.com/view/22350515/2s93XyU3m1)
+
+Funcionalidades da API
+Criar uma nova competição;
+Retornar os dados de todas as competições;
+Finalizar uma competição;
+Criar pontuação;
+Retornar o ranking de determinada competição;
+Retornar os dados de uma pontuação;
+Deletar uma competição;
+A API impede a criação de novas pontuações caso a competição tenha sido encerrada;
+A API impede a criação de novas pontuações de um mesmo usuário por mais de 3 vezes.
+O Ranking retorna em ordem crescente para competições de 100m e em ordem decrescente para competições de lançamento de dardos.
+
+Tecnologias utilizadas 
+Node.js
+Typescript
+Jest (para testes unitários)
+Express
+Git
+SQLite 
