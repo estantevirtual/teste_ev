@@ -81,7 +81,7 @@ describe("Modality Business tests",()=>{
           test("Should throw an error if the modality does not exist", async () => {
               const mockId = "teste"
               try {
-                  await modalityBusiness.deletemodalityById(mockId)
+                  await modalityBusiness.deleteModalityById(mockId)
               } catch (error:any) {
                   expect(error.message).toBe("The modality does not exist")
               }
@@ -93,7 +93,7 @@ describe("Modality Business tests",()=>{
                   type: "100m",
                 };
                 await modalityDatabase.insertModality(mockInput)
-                await expect(MODALITYBusiness.deleteModalityById("123")).resolves.toEqual(true)
+                await expect(modalityBusiness.deleteModalityById("123")).resolves.toEqual(true)
           })
       })
     });

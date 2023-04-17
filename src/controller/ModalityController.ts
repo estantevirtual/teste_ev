@@ -30,7 +30,7 @@ export class ModalityController {
   finishModality = async (req: Request, res: Response) => {
     try {
       const id = req.query.id as string;
-      await modalityBusiness.finishCompetition(id);
+      await modalityBusiness.finishModality(id);
       res.status(201).send("Modality has ended successfully!");
     } catch (error: any) {
       if (error.message === "Modality does not exist") {

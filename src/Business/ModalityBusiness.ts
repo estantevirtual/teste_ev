@@ -54,7 +54,7 @@ export class ModalityBusiness {
         }
     }
 
-    finishCompetition = async (id: string) => {
+    finishModality = async (id: string) => {
         try {
           if (!id) {
             throw new Error("ID must be passed as parameter");
