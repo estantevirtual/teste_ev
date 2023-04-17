@@ -92,3 +92,6 @@ SQLite
 
 Link do render:
 [render](https://estante.onrender.com)
+## Testes ##
+npm run testA
+npm run testB
