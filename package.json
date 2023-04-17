@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/src/index.js",
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "testA": "jest ModalityTests.test.ts",
+    "testB": "jest ScoreTests.test.ts"
     
   },
   "repository": {
