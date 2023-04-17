@@ -82,16 +82,17 @@ A API impede a criação de novas pontuações caso a competição tenha sido en
 A API impede a criação de novas pontuações de um mesmo usuário por mais de 3 vezes.
 O Ranking retorna em ordem crescente para competições de 100m e em ordem decrescente para competições de lançamento de dardos.
 
-Tecnologias utilizadas 
-Node.js
-Typescript
-Jest (para testes unitários)
-Express
-Git
-SQLite 
+Tecnologias utilizadas;
+Node.js;
+Typescript;
+Jest (para testes unitários);
+Express;
+Git;
+SQLite; 
 
 Link do render:
 [render](https://estante.onrender.com)
 ## Testes ##
-npm run testA
-npm run testB
+npm run testA;
+
+npm run testB;
