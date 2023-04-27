@@ -55,4 +55,14 @@ export class CompetitionsDataBase extends BaseDataBase {
       throw new CustomError(400, error.message);
     }
   };
+
+  public finishCompetition = async (id: string) => {
+    try {
+      await CompetitionsDataBase.connection(TABLE_COMPETITIONS)
+        .where({ id })
+        .update({ finished: true });
+    } catch (error: any) {
+      throw new CustomError(400, error.message);
+    }
+  };
 }

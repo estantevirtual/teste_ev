@@ -19,4 +19,26 @@ export class CompetitionsController {
       res.status(400).send(error.message);
     }
   };
+
+  public getCompetitionById = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const result = await competitionsBusiness.getCompetitionById(id);
+      res.status(200).send(result);
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  };
+
+  public finishCompetition = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      await competitionsBusiness.finishCompetition(id);
+      res.status(200).send("Competition ended successfully!");
+    } catch (error: any) {
+      res.status(400).send(error.message);
+    }
+  };
 }

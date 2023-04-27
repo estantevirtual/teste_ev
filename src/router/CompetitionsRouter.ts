@@ -9,7 +9,6 @@ competitionRouter.post(
   "/competition",
   competitionsController.createCompetition
 );
-// competitionRouter.get(
-//   "/:id",
-//   competitionsController.getCompetitionById
-// );
+competitionRouter.get("/:id", competitionsController.getCompetitionById);
+
+competitionRouter.put("/:id", competitionsController.finishCompetition);
