@@ -44,3 +44,55 @@ ex:
 7. Não é necessário criar um banco de dados, podendo manter os dados na memória. (hint: sqlite)
 8. É imperativo a utilização de Ruby para a criação da API Rest.
 9. Sugerimos a utilização do git para versionar a solução. Um Pull Request (PR) para este repo, num branch com seu nome_sobrenome seria excelente, pois mais do que analisar o código, queremos analisar o fluxo de trabalho, a linha de pensamento e como evoluiu o código até chegar na solução.
+
+
+
+
+ Jogos Olímpicos Dardos e 100m
+API REST em TypeScript(a case pede em ruby mas para o curso pode ser feita em typescript) para gerenciamento de modalidades esportivas e resultados de Jogos Olímpicos. A API é capaz de criar modalidades, cadastrar resultados e exibir o ranking da modalidade .
+
+Instalação
+Clone o Repositório
+git clone [https://github.com/mlt3800/teste_ev]
+
+Instale as dependências
+npm install
+
+Uso
+Rode a aplicação
+npm run start
+
+||
+
+npm run dev
+
+Leia a documentação e faça as requisições com a aplicação rodando
+## 📌 Link Documentação Postman
+[postman](https://documenter.getpostman.com/view/22350515/2s93XyU3m1)
+
+Funcionalidades da API
+Criar uma nova modalidade esportiva;
+Retornar os dados de todas as modalidades;
+Finalizar uma modalidade;
+Criar placar;
+Retornar o ranking de determinada modalidade;
+Retornar os dados de um placar;
+Deletar uma modalidade;
+A API impede a criação de novos placares caso a modalidade tenha sido encerrada;
+A API impede a criação de novos placares de um mesmo usuário por mais de 3 vezes.
+O Ranking retorna em ordem crescente para modalidades de 100m e em ordem decrescente para modalidades de lançamento de dardos.
+
+Tecnologias utilizadas;
+Node.js;
+Typescript;
+Jest (para testes unitários);
+Express;
+Git;
+SQLite; 
+
+Link do render:
+[render](https://estante.onrender.com)
+## Testes ##
+npm run testA;
+
+npm run testB;

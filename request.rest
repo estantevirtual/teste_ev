@@ -1,0 +1,35 @@
+POST http://localhost:3003/modality/create
+Content-Type: application/json
+
+{
+
+"name":"100m semifinal - masculino",
+"type":"100m"
+    
+}
+###
+GET  http://localhost:3003/modality/getall
+Content-Type: application/json
+
+###
+POST http://localhost:3003/score/create
+content-type: application/json
+
+{
+    
+     "modality_id":"3003a622-042e-485d-8f22-9ce3ac91f2eb",
+    "athlete":"Enzo Pietro",
+    "value":7,
+    "unit":"s"
+}
+###
+GET http://localhost:3003/score/getall
+Content-Type: application/json
+###
+PUT http://localhost:3003/modality/end/?id=3003a622-042e-485d-8f22-9ce3ac91f2eb
+content-type: application/json
+###
+GET http://localhost:3003/score/rank?id=3003a622-042e-485d-8f22-9ce3ac91f2eb
+Content-Type: application/json
+###
+
