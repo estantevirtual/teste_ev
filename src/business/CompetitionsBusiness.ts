@@ -13,40 +13,55 @@ const competitionsDataBase = new CompetitionsDataBase();
 export class CompetitionsBusiness {
   public createCompetition = async (input: CompetitionInputDTO) => {
     try {
+      const existingModality = await competitionsDataBase.checkExistsModality(input.modality);
       const { name, modality } = input;
-
-      // IMPLEMENTAR VEFIFICAÇÕES
-      // const modalityExists = await competitionsDataBase.checkExistsModality(
-      //   input.modality
-      // );
-      // const nameExists = await competitionsDataBase.checkExistsCompetition(
-      //   input.name
-      // );
-      // if (modalityExists && nameExists) {
-      //   throw new CompetitionExists();
-      // }
 
       if (!name || !modality) {
         throw new InvalidRequest();
       }
 
-      if (typeof name && typeof modality != "string") {
+      if (typeof name !== "string" || typeof modality !== "string") {
         throw new InvalidTypeOf();
       }
-      const id: string = generateId();
 
-      const competition = {
-        id,
-        name,
-        modality,
-      };
+      if (existingModality.length === 0) {
+        // Se a modalidade não existir, crie a competição diretamente
+        const id: string = generateId();
 
-      const result = await competitionsDataBase.createCompetition(competition);
-      return result;
+        const competition = {
+          id,
+          name,
+          modality,
+        };
+
+        const result = await competitionsDataBase.createCompetition(competition);
+        return result;
+      } else {
+        // Se a modalidade existir, verifique a existência do nome da competição
+        const existingCompetitionName = await competitionsDataBase.checkExistsCompetitionName(input.name);
+
+        if (existingCompetitionName.length > 0) {
+          throw new CompetitionExists();
+        }
+
+        // Crie a competição se o nome não existir
+        const id: string = generateId();
+
+        const competition = {
+          id,
+          name,
+          modality,
+        };
+
+        const result = await competitionsDataBase.createCompetition(competition);
+        return result;
+      }
+      
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
   };
+
 
   public getCompetitionById = async (id: string) => {
     try {

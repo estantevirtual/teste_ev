@@ -1,7 +1,15 @@
 export type Results = {
   id: string;
+  competition: string;
   athlete: string;
   value: number;
-  unit: "s" | "m";
-  competitions_id: string;
+  unit: string;
+  // "s" | "min" | "m" | "km";
 };
+
+export interface ResultInputDTO {
+  competition: string;
+  athlete: string;
+  value: number;
+  unit: string;
+}

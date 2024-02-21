@@ -1,10 +1,10 @@
 import { CustomError } from "../error/CustomError";
 import { Competitions } from "../models/Competitions";
-import { BaseDataBase } from "./BaseDataBase";
+import { BaseDatabase } from "./BaseDataBase";
 
 const TABLE_COMPETITIONS = "Competitions";
 
-export class CompetitionsDataBase extends BaseDataBase {
+export class CompetitionsDataBase extends BaseDatabase {
   //CRIAÇÃO DE COMPETIÇÃO
   public createCompetition = async (competition: Competitions) => {
     try {
@@ -33,11 +33,13 @@ export class CompetitionsDataBase extends BaseDataBase {
   };
 
   //VERIFICAR SE O NOME DA COMPETIÇÃO EXISTE
-  public checkExistsCompetition = async (name: string) => {
+  public checkExistsCompetitionName = async (name: string) => {
     try {
+      const joinedName = name.toLowerCase().split(" ").join("");
       const result = await CompetitionsDataBase.connection(TABLE_COMPETITIONS)
         .select()
-        .where("name", name);
+        .whereRaw('LOWER(REPLACE(name, " ", "")) = ?', [joinedName]);
+
       return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
@@ -45,17 +47,20 @@ export class CompetitionsDataBase extends BaseDataBase {
   };
 
   // VERIFICAR SE A MODALIDADE DA COMPETIÇÃO EXISTE
-  public checkExistsModality = async (modality: string) => {
+  public checkExistsModality= async (modality: string) => {
     try {
+      const joinedModality = modality.toLowerCase().split(" ").join("");
       const result = await CompetitionsDataBase.connection(TABLE_COMPETITIONS)
         .select()
-        .where("modality", modality);
+        .whereRaw('LOWER(REPLACE(modality, " ", "")) = ?', [joinedModality]);
+
       return result;
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
   };
 
+  //FINALIZAR UMA COMPETIÇÃO
   public finishCompetition = async (id: string) => {
     try {
       await CompetitionsDataBase.connection(TABLE_COMPETITIONS)

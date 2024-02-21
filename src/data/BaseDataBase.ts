@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export abstract class BaseDataBase {
+export abstract class BaseDatabase {
   protected static connection = knex({
     client: "sqlite3",
     connection: {

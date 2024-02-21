@@ -6,9 +6,9 @@ export const competitionRouter = express.Router();
 const competitionsController = new CompetitionsController();
 
 competitionRouter.post(
-  "/competition",
+  "/create",
   competitionsController.createCompetition
 );
-competitionRouter.get("/:id", competitionsController.getCompetitionById);
+// competitionRouter.get("/:id", competitionsController.getCompetitionById);
 
-competitionRouter.put("/:id", competitionsController.finishCompetition);
+competitionRouter.put("/fineshed/:id", competitionsController.finishCompetition);
