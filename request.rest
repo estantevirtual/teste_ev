@@ -1,0 +1,19 @@
+//CREATE COMPETITION
+POST http://localhost:3003/competitions/create
+Content-Type: application/json
+
+{
+  "name": "Lançamento de Dardos",
+  "modality": "Dardos"
+}
+###
+//FINESHED COMPETITIONS
+PUT  http://localhost:3003/competitions/fineshed/3345fba8-58b2-4eea-81b3-fe327a48c956
+###
+//CREATE ATHLETE
+POST http://localhost:3003/athletes/create
+Content-Type: application/json
+
+{
+  "name": "Joao Alfredo Silva"
+}
